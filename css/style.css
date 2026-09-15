@@ -26,6 +26,10 @@ body {
     Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  /* PWA 풀스크린 실행 시 노치/제스처 영역 침범 방지 */
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 a {
@@ -55,7 +59,7 @@ header.topbar {
 .topbar-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: calc(12px + env(safe-area-inset-top, 0)) 16px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -301,8 +305,49 @@ select:focus {
   max-width: 480px;
   border-radius: 16px 16px 0 0;
   padding: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0));
   max-height: 90vh;
   overflow-y: auto;
+}
+
+/* "홈 화면에 추가" 안내 배너 */
+.install-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--color-text);
+  color: #fff;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.install-banner-text {
+  font-size: 0.875rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.install-banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.install-banner-actions .btn {
+  min-height: 40px;
+  padding: 8px 16px;
+}
+
+.install-banner-actions .btn.secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
 }
 
 .modal-title {
