@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>굿즈샵 - 결제 실패</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <div class="card" style="max-width: 420px; margin: 60px auto; text-align:center;">
+      <p id="statusText">결제에 실패했습니다.</p>
+      <p class="muted" id="reasonText"></p>
+      <div class="modal-actions">
+        <a href="shop.html" class="btn block">상품 목록으로</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const message = params.get("message");
+    if (message) {
+      document.getElementById("reasonText").textContent = decodeURIComponent(message);
+    }
+  </script>
+</body>
+</html>
