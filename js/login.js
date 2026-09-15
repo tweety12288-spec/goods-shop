@@ -9,15 +9,21 @@ const tabs = document.querySelectorAll(".tab");
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
 
+function activateTab(tabName) {
+  tabs.forEach((t) => t.classList.toggle("active", t.dataset.tab === tabName));
+  loginForm.hidden = tabName !== "login";
+  signupForm.hidden = tabName !== "signup";
+}
+
 tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    tabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
-    const isLogin = tab.dataset.tab === "login";
-    loginForm.hidden = !isLogin;
-    signupForm.hidden = isLogin;
-  });
+  tab.addEventListener("click", () => activateTab(tab.dataset.tab));
 });
+
+// 헤더의 "회원가입" 링크에서 ?tab=signup 으로 들어오면 회원가입 탭을 바로 보여줌
+const requestedTab = new URLSearchParams(location.search).get("tab");
+if (requestedTab === "signup") {
+  activateTab("signup");
+}
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();

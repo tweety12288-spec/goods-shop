@@ -11,7 +11,7 @@ async function getCurrentUser() {
 async function requireLogin() {
   const user = await getCurrentUser();
   if (!user) {
-    location.href = "index.html";
+    location.href = "login.html";
     return null;
   }
   return user;
@@ -77,4 +77,24 @@ async function renderNav(activePage) {
   `;
 
   document.getElementById("logoutBtn").addEventListener("click", logout);
+}
+
+// 랜딩 페이지(index.html) 전용 헤더: 로그인 상태면 일반 네비게이션,
+// 비로그인 상태면 로그인/회원가입 버튼을 보여준다.
+async function renderLandingHeader() {
+  const nav = document.getElementById("nav");
+  if (!nav) return;
+
+  const user = await getCurrentUser();
+  if (user) {
+    await renderNav("index.html");
+    return;
+  }
+
+  nav.innerHTML = `
+    <div class="nav-links">
+      <a href="login.html" class="nav-link">로그인</a>
+      <a href="login.html?tab=signup" class="nav-link">회원가입</a>
+    </div>
+  `;
 }

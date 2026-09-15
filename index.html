@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>굿즈샵 - 로그인</title>
+  <title>굿즈샵</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -14,45 +14,36 @@
     </div>
   </header>
 
-  <main class="container">
-    <div class="card" style="max-width: 420px; margin: 40px auto;">
-      <div class="tabs">
-        <button type="button" class="tab active" data-tab="login">로그인</button>
-        <button type="button" class="tab" data-tab="signup">회원가입</button>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">나만의 작은 굿즈샵</h1>
+        <p class="hero-subtitle">스티커, 에코백, 키링까지 — 마음에 드는 굿즈를 골라보세요.</p>
+        <a href="shop.html" class="btn hero-cta">상품 구경하기</a>
       </div>
+    </section>
 
-      <form id="loginForm" class="form">
-        <div class="field">
-          <label for="loginEmail">이메일</label>
-          <input type="email" id="loginEmail" required autocomplete="email" />
+    <section class="container">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-title">간편 가입</div>
+          <div class="feature-desc">이메일만 있으면 인증 절차 없이 바로 가입, 바로 이용</div>
         </div>
-        <div class="field">
-          <label for="loginPassword">비밀번호</label>
-          <input type="password" id="loginPassword" required autocomplete="current-password" />
+        <div class="feature-card">
+          <div class="feature-title">안전한 테스트 결제</div>
+          <div class="feature-desc">토스페이먼츠 테스트 모드 — 실제 카드/청구 없이 결제 체험</div>
         </div>
-        <p class="error-text" id="loginError"></p>
-        <button type="submit" class="btn block">로그인</button>
-      </form>
-
-      <form id="signupForm" class="form" hidden>
-        <div class="field">
-          <label for="signupEmail">이메일</label>
-          <input type="email" id="signupEmail" required autocomplete="email" />
+        <div class="feature-card">
+          <div class="feature-title">내 주문 확인</div>
+          <div class="feature-desc">로그인 후 언제든 내 결제 내역을 확인할 수 있어요</div>
         </div>
-        <div class="field">
-          <label for="signupPassword">비밀번호</label>
-          <input type="password" id="signupPassword" required minlength="6" autocomplete="new-password" />
-        </div>
-        <p class="muted">가입 즉시 로그인됩니다 (이메일 인증 없음)</p>
-        <p class="error-text" id="signupError"></p>
-        <button type="submit" class="btn block">회원가입</button>
-      </form>
-    </div>
+      </div>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabaseClient.js"></script>
   <script src="js/auth.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/landing.js"></script>
 </body>
 </html>
