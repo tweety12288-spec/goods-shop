@@ -24,6 +24,11 @@
     </section>
 
     <section class="container">
+      <h2 class="section-title">상품 둘러보기</h2>
+      <div id="landingProductGrid" class="product-grid"></div>
+    </section>
+
+    <section class="container">
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-title">간편 가입</div>
@@ -40,6 +45,19 @@
       </div>
     </section>
   </main>
+
+  <div id="detailModal" class="modal-overlay" hidden>
+    <div class="modal">
+      <img id="detailImage" class="detail-image" src="" alt="" />
+      <h2 class="modal-title" id="detailName"></h2>
+      <p class="product-price" id="detailPrice"></p>
+      <p class="muted" id="detailDescription"></p>
+      <div class="modal-actions">
+        <button type="button" class="btn secondary" id="closeDetail">닫기</button>
+        <a href="shop.html" class="btn">구매하러 가기</a>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabaseClient.js"></script>

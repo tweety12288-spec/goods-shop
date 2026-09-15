@@ -379,6 +379,24 @@ select:focus {
   color: var(--color-muted);
 }
 
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 24px 0 4px;
+}
+
+.product-card-clickable {
+  cursor: pointer;
+}
+
+.detail-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
 /* 랜딩 페이지 히어로 */
 .hero {
   background: linear-gradient(180deg, #eaf2ff 0%, var(--color-bg) 100%);
